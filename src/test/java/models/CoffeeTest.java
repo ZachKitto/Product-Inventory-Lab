@@ -69,4 +69,25 @@ public class CoffeeTest {
         // Then
         Assertions.assertEquals(expected, testCoffee.getSugar());
     }
+
+    @Test
+    public void constructorTest() {
+        // Given
+        int expectedQuantity = 100;
+        double expectedPrice = 2.49;
+        boolean expectedIsCaffeinated = true;
+        int expectedCream = 4;
+        int expectedSugar = 2;
+
+        // When
+        Coffee testCoffee = new Coffee(expectedQuantity, expectedPrice, expectedIsCaffeinated,
+                expectedCream, expectedSugar);
+
+        // Then
+        Assertions.assertEquals(expectedQuantity, testCoffee.getQuantity());
+        Assertions.assertEquals(expectedPrice, testCoffee.getPrice());
+        Assertions.assertEquals(expectedIsCaffeinated, testCoffee.isCaffeinated());
+        Assertions.assertEquals(expectedCream, testCoffee.getCream());
+        Assertions.assertEquals(expectedSugar, testCoffee.getSugar());
+    }
 }

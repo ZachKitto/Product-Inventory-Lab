@@ -8,6 +8,20 @@ public class Book {
     private String author;
     private int id;
 
+    public Book(int quantity, double price, String genre,
+                String name, String author, int id) {
+        this.quantity = quantity;
+        this.price = price;
+        this.genre = genre;
+        this.name = name;
+        this.author = author;
+        this.id = id;
+    }
+
+    public Book() {
+
+    }
+
     public int getQuantity() {
         return quantity;
     }

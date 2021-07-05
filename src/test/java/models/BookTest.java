@@ -82,4 +82,27 @@ public class BookTest {
         // Then
         Assertions.assertEquals(expected, testBook.getId());
     }
+
+    @Test
+    public void constructorTest() {
+        // Given
+        int expectedQuantity = 10;
+        double expectedPrice = 11.99;
+        String expectedGenre = "Children";
+        String expectedName = "Green Eggs and Ham";
+        String expectedAuthor = "Dr. Seuss";
+        int expectedId = 472;
+
+        // When
+        Book testBook = new Book(expectedQuantity, expectedPrice, expectedGenre,
+                expectedName, expectedAuthor, expectedId);
+
+        // Then
+        Assertions.assertEquals(expectedQuantity, testBook.getQuantity());
+        Assertions.assertEquals(expectedPrice, testBook.getPrice());
+        Assertions.assertEquals(expectedGenre, testBook.getGenre());
+        Assertions.assertEquals(expectedName, testBook.getName());
+        Assertions.assertEquals(expectedAuthor, testBook.getAuthor());
+        Assertions.assertEquals(expectedId, testBook.getId());
+    }
 }

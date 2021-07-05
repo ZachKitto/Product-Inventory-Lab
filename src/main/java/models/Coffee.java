@@ -7,6 +7,18 @@ public class Coffee {
     private int cream;
     private int sugar;
 
+    public Coffee(int quantity, double price, boolean isCaffeinated, int cream, int sugar) {
+        this.quantity = quantity;
+        this.price = price;
+        this.isCaffeinated = isCaffeinated;
+        this.cream = cream;
+        this.sugar = sugar;
+    }
+
+    public Coffee() {
+
+    }
+
     public int getQuantity() {
         return quantity;
     }
