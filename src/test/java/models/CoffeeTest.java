@@ -71,6 +71,19 @@ public class CoffeeTest {
     }
 
     @Test
+    public void setIdTest() {
+        // Given
+        int expected = 12;
+
+        // When
+        Coffee testCoffee = new Coffee();
+        testCoffee.setId(expected);
+
+        // Then
+        Assertions.assertEquals(expected, testCoffee.getId());
+    }
+
+    @Test
     public void constructorTest() {
         // Given
         int expectedQuantity = 100;
@@ -78,10 +91,11 @@ public class CoffeeTest {
         boolean expectedIsCaffeinated = true;
         int expectedCream = 4;
         int expectedSugar = 2;
+        int expectedId = 12;
 
         // When
         Coffee testCoffee = new Coffee(expectedQuantity, expectedPrice, expectedIsCaffeinated,
-                expectedCream, expectedSugar);
+                expectedCream, expectedSugar, expectedId);
 
         // Then
         Assertions.assertEquals(expectedQuantity, testCoffee.getQuantity());

@@ -6,13 +6,16 @@ public class Coffee {
     private boolean isCaffeinated;
     private int cream;
     private int sugar;
+    private int id;
 
-    public Coffee(int quantity, double price, boolean isCaffeinated, int cream, int sugar) {
+
+    public Coffee(int quantity, double price, boolean isCaffeinated, int cream, int sugar, int id) {
         this.quantity = quantity;
         this.price = price;
         this.isCaffeinated = isCaffeinated;
         this.cream = cream;
         this.sugar = sugar;
+        this.id = id;
     }
 
     public Coffee() {
@@ -57,5 +60,13 @@ public class Coffee {
 
     public void setSugar(int sugar) {
         this.sugar = sugar;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
