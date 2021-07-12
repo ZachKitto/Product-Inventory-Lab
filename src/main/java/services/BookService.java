@@ -1,4 +1,8 @@
 package services;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import models.Book;
 import utils.CSVUtils;
 
@@ -13,7 +17,7 @@ public class BookService {
 
     private static List<Book> inventory = new ArrayList<Book>();
 
-    public static void csvFile() throws IOException {
+    public void implementCSVUtility() throws IOException {
 
         String csvFile = "/Users/zach/dev/Book.csv";
         FileWriter writer = new FileWriter(csvFile); //(1)
@@ -32,12 +36,12 @@ public class BookService {
             CSVUtils.writeLine(writer, list);  // (4)
         }
 
-// (5)
+        // (5)
         writer.flush();
         writer.close();
     }
 
-    private void loadData(){
+    public void loadData(){
         // (1)
         String csvFile = "/Users/zach/dev/Book.csv";
         String line = "";
@@ -66,6 +70,19 @@ public class BookService {
             e.printStackTrace();
         }
     }
+
+    public void readJSON() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        this.inventory = objectMapper.readValue(new File("book.json"), new TypeReference<List<Book>>(){});
+    }
+
+    public void writeJSON() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+        writer.writeValue(new File("book.json"), inventory);
+
+    }
+
 
 
     public Book create(int quantity, double price, String genre, String name, String author) {

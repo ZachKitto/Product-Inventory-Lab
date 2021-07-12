@@ -1,0 +1,8 @@
+[ {
+  "quantity" : 1,
+  "price" : 24.99,
+  "genre" : "Fantasy",
+  "name" : "Harry Potter",
+  "author" : "J.K. Rowling",
+  "id" : 1
+} ]

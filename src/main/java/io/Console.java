@@ -5,6 +5,7 @@ import models.Coffee;
 import services.BookService;
 import services.CoffeeService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Console {
@@ -29,7 +30,7 @@ public class Console {
                 "**************************************************");
     }
 
-    public static void programStart() {
+    public static void programStart() throws IOException {
         boolean loop = true;
         Scanner scanner = new Scanner(System.in);
         //System.out.println("What would you like to do?\nEnter a number:\n1.) Check a product\n2.) Delete a product\n" +
@@ -227,7 +228,7 @@ public class Console {
         //}
     }
 
-    public static void createProduct() {
+    public static void createProduct() throws IOException {
         Scanner scanner = new Scanner(System.in);
         BookService bookService = new BookService();
         //System.out.println("Do you want to create a new product? Yes or No");
@@ -235,6 +236,8 @@ public class Console {
             System.out.println("Which product? Book or Coffee");
             if (scanner.next().equalsIgnoreCase("book")) {
                 Console.createBook();
+                bookService.writeJSON();
+                bookService.readJSON();
             }
             else if (scanner.next().equalsIgnoreCase("coffee")) {
                 Console.createCoffee();
@@ -247,14 +250,16 @@ public class Console {
         BookService bookService = new BookService();
         System.out.println("Input the quantity of this book to add");
         int quantity = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Input the price of this book");
         double price = scanner.nextDouble();
+        scanner.nextLine();
         System.out.println("Input the genre of this book");
-        String genre = scanner.next();
+        String genre = scanner.nextLine();
         System.out.println("Input the name of this book");
-        String name = scanner.next();
+        String name = scanner.nextLine();
         System.out.println("Input the author of this book");
-        String author = scanner.next();
+        String author = scanner.nextLine();
         Book newBook = bookService.create(quantity, price, genre, name, author);
         //System.out.println("The book has been added to the inventory");
     }
